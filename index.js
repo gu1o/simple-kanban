@@ -1,9 +1,9 @@
-// Inicializa o Dragula
+// start Dragula
 const drake = dragula(Array.from(document.querySelectorAll(".tasks")), {
   revertOnSpill: true,
 });
 
-// Função para salvar o estado no Local Storage
+// Function to save local storage
 function saveKanbanState() {
   const state = {};
   document.querySelectorAll(".tasks").forEach((column) => {
@@ -14,18 +14,18 @@ function saveKanbanState() {
   localStorage.setItem("kanbanState", JSON.stringify(state));
 }
 
-// Função para carregar o estado do Local Storage
+// load the local storage
 function loadKanbanState() {
   const savedState = localStorage.getItem("kanbanState");
   if (savedState) {
     const state = JSON.parse(savedState);
 
-    // Limpa todas as colunas
+    // clean all columns
     document.querySelectorAll(".tasks").forEach((column) => {
       column.innerHTML = "";
     });
 
-    // Recria as tarefas nas colunas salvas
+    // re-build tasks
     Object.keys(state).forEach((columnId) => {
       const column = document.getElementById(columnId);
       if (column) {
@@ -41,35 +41,38 @@ function loadKanbanState() {
   }
 }
 
-// Eventos do Dragula para animações
+// Dragula effects
+
+// animation effects
 drake.on("drag", function (el, source) {
-  // Adiciona classe de feedback às colunas quando o arrasto começa
+
+  // add column effect animate
   document.querySelectorAll(".task-column").forEach((column) => {
     column.classList.add("drop-ready");
   });
 });
 
 drake.on("dragend", function (el) {
-  // Remove classe de feedback das colunas quando o arrasto termina
+  // remove the effect
   document.querySelectorAll(".task-column").forEach((column) => {
     column.classList.remove("drop-ready");
   });
 });
 
+// task fade animation
 drake.on("drop", function (el, target, source, sibling) {
-  // Animação de tremor no elemento solto
-  el.classList.add("shake");
+  el.classList.add("fade-in-bottom");
 
-  // Remove a classe de animação após ela terminar
+  // remove after animation ends
   setTimeout(() => {
-    el.classList.remove("shake");
+    el.classList.remove("fade-in-bottom");
   }, 500);
 
-  // Salva o estado
+  // save state
   saveKanbanState();
 });
 
-// Carrega o estado salvo quando a página é carregada
+// load state at reload page
 document.addEventListener("DOMContentLoaded", function () {
   loadKanbanState();
 });

@@ -5,36 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>KanBan</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="container">
+
+  <body class="bg-gray-50">
+    <div class="contents">
       <div class="task-column">
         <h2>To Do</h2>
         <ul class="tasks" id="todo">
-          <li class="task" draggable="true">Find out where Soul Stone is</li>
+          <li class="task" draggable="true">
+            <div class="title-task">
+              <p>Find out where Soul Stone is</p>
+            </div>
+            <div class="content-task">
+              <p>dasjdasdsak</p>
+            </div>
+          </li>
         </ul>
+
+        <button type="button" class="create-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M8 1V15M1 8H15"
+              stroke="#a3a3a3"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="">Add another card</span>
+        </button>
       </div>
+
       <div class="task-column">
         <h2>In Progress</h2>
         <ul class="tasks" id="inprogress">
           <li class="task" draggable="true">
-            Collect Time Stone from Dr. Strange
+            <div class="title-task">
+              <p>Collect Time Stone from Dr. Strange</p>
+            </div>
+
+            <div class="content-task">
+              <p>dasjdasdsak</p>
+            </div>
           </li>
-          <li class="task" draggable="true">Collect Mind Stone from Vision</li>
           <li class="task" draggable="true">
-            Collect Reality Stone from the Collector
+            <div class="title-task">
+              <p>Collect Mind Stone from Vision</p>
+            </div>
+
+            <div class="content-task">
+              <p>dasjdasdsak</p>
+            </div>
+          </li>
+          <li class="task" draggable="true">
+            <div class="title-task">
+              <p>Collect Reality Stone from the Collector</p>
+            </div>
+
+            <div class="content-task">
+              <p>dasjdasdsak</p>
+            </div>
           </li>
         </ul>
+        <button type="button" class="create-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M8 1V15M1 8H15"
+              stroke="#a3a3a3"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="">Add another card</span>
+        </button>
       </div>
       <div class="task-column">
         <h2>Done</h2>
         <ul class="tasks" id="done">
-          <li class="task" draggable="true">Collect Power Stone from Xandar</li>
-          <li class="task" draggable="true">Collect Space Stone from Asgard</li>
+          <li class="task" draggable="true">
+            <div class="title-task">
+              <p>Collect Power Stone from Xandar</p>
+            </div>
+
+            <div class="content-task">
+              <p>dasjdasdsak</p>
+            </div>
+          </li>
+          <li class="task" draggable="true">
+            <div class="title-task">
+              <p>Collect Space Stone from Asgard</p>
+            </div>
+            
+            <div class="content-task">
+              <p>dasjdasdsak</p>
+            </div>
+          </li>
         </ul>
+
+        <button type="button" class="create-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M8 1V15M1 8H15"
+              stroke="#a3a3a3"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="">Add another card</span>
+        </button>
       </div>
     </div>
 

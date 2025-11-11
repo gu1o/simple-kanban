@@ -9,13 +9,20 @@ body {
   padding: 10px;
 }
 
+.contents {
+  display: flex;
+  gap: 0.75rem;
+  padding: 2.5rem;
+}
+
 .task-column {
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
   flex: 1;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .task-column.drop-ready {
@@ -30,23 +37,29 @@ body {
   gap: 0.5rem;
   list-style: none;
   padding: 0;
-  min-height: 200px;
+  min-width: 20rem;
 }
 
 .task-column h2 {
-  text-align: center;
+  text-align: start;
   font-size: 18px;
-  margin-bottom: 10px;
 }
 
 .task {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
   background-color: #f9f9f9;
   border: 1px solid #eeeeee;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   border-radius: 3px;
   padding: 8px;
   cursor: grab;
   transition: all 0.2s ease;
   list-style: none;
+  max-width: 28rem;
+  min-height: 2.5rem;
 }
 
 .task:hover {
@@ -55,6 +68,32 @@ body {
 
 .task:active {
   cursor: grabbing;
+}
+
+.title-task {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.create-card {
+  display: flex;
+  width: 100%;
+  height: 2.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  padding: 8px 28px 8px 12px;
+  background-color: #e3e3e3;
+  color: #a3a3a3;
+  font-weight: 600;
+}
+
+.create-card:hover {
+  background-color: #b9b9b9;
+  color: #4d4d4d;
 }
 
 .gu-mirror {
@@ -67,32 +106,24 @@ body {
   opacity: 0.5;
 }
 
-/* Animação de tremor quando o item é solto */
-@keyframes shake {
-  0%,
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
   100% {
-    transform: translateX(0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: translateX(-5px);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: translateX(5px);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.shake {
-  animation: shake 0.7s ease-in-out;
+.fade-in-bottom {
+  animation: fade-in-bottom 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
-/* Feedback visual para colunas quando um item está sendo arrastado */
+/* column visual feedback */
 .drag-over {
   background-color: #f0f8ff;
   border: 2px dashed #4a90e2;
@@ -103,4 +134,3 @@ body {
     flex-direction: column;
   }
 }
-
