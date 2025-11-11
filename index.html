@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>KanBan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="task-column">
+        <h2>To Do</h2>
+        <ul class="tasks" id="todo">
+          <li class="task" draggable="true">Find out where Soul Stone is</li>
+        </ul>
+      </div>
+      <div class="task-column">
+        <h2>In Progress</h2>
+        <ul class="tasks" id="inprogress">
+          <li class="task" draggable="true">
+            Collect Time Stone from Dr. Strange
+          </li>
+          <li class="task" draggable="true">Collect Mind Stone from Vision</li>
+          <li class="task" draggable="true">
+            Collect Reality Stone from the Collector
+          </li>
+        </ul>
+      </div>
+      <div class="task-column">
+        <h2>Done</h2>
+        <ul class="tasks" id="done">
+          <li class="task" draggable="true">Collect Power Stone from Xandar</li>
+          <li class="task" draggable="true">Collect Space Stone from Asgard</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
