@@ -3,6 +3,10 @@ body {
   background-color: #f3f4f6;
 }
 
+p {
+  margin: 0;
+}
+
 .container {
   display: flex;
   gap: 0.5rem;
@@ -23,6 +27,7 @@ body {
   gap: 1rem;
   padding: 1.5rem 1rem;
   border-radius: 0.5rem;
+  background-color: #ececec;
 }
 
 .task-column.drop-ready {
@@ -43,18 +48,20 @@ body {
 .task-column h2 {
   text-align: start;
   font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 .task {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 16px;
+  padding: 1rem;
+  gap: 1rem;
   background-color: #f9f9f9;
   border: 1px solid #eeeeee;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   border-radius: 3px;
-  padding: 8px;
   cursor: grab;
   transition: all 0.2s ease;
   list-style: none;
@@ -72,8 +79,40 @@ body {
 
 .title-task {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+  align-self: stretch;
+}
+
+.title-task h3 {
+  font-size: 1.125rem;
+  line-height: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.edit-task {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.edit-task svg {
+  width: 16px;
+  height: 16px;
+}
+
+.content-task {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 8px;
+}
+
+.content-task p {
+  font-size: 1rem;
+  line-height: 20px;
 }
 
 .create-card {
