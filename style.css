@@ -1,5 +1,5 @@
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #f3f4f6;
 }
 
@@ -7,16 +7,14 @@ p {
   margin: 0;
 }
 
-.container {
-  display: flex;
-  gap: 0.5rem;
-  padding: 10px;
-}
-
 .contents {
   display: flex;
   gap: 0.75rem;
   padding: 2.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .task-column {
@@ -111,8 +109,46 @@ p {
 }
 
 .content-task p {
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 20px;
+  text-align: start;
+  font-weight: 300;
+}
+
+.RnT {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.responsable img {
+  height: 32px;
+  width: 32px;
+  object-fit: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.time-task {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 4px 12px;
+  align-self: stretch;
+  background-color: rgba(237, 235, 254);
+  border-radius: 8px;
+}
+
+.time-task span {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+.time-task:last-child {
+  background-color: rgba(222,247,236);
 }
 
 .create-card {
@@ -169,7 +205,25 @@ p {
 }
 
 @media (width < 600px) {
-  .container {
-    flex-direction: column;
+  .contents {
+    padding: 2rem 1rem;
+  }
+
+  .task {
+    max-width: none;
+  }
+}
+
+@media (width >= 601px) and (width <= 900px) {
+  .contents {
+    padding: 2.5rem;
+  }
+
+  .task-column {
+    max-width: 456px;
+  }
+
+  .task {
+    max-width: none;
   }
 }
