@@ -8,44 +8,44 @@ function saveKanbanState() {
   const state = {};
   document.querySelectorAll(".tasks").forEach((column) => {
     state[column.id] = Array.from(column.querySelectorAll(".task")).map(
-      (task) => task.textContent
+      (task) => task.outerHTML
     );
   });
   localStorage.setItem("kanbanState", JSON.stringify(state));
 }
 
-// load the local storage
+// load state
 function loadKanbanState() {
   const savedState = localStorage.getItem("kanbanState");
-  if (savedState) {
-    const state = JSON.parse(savedState);
+  if (!savedState) return;
 
-    // clean all columns
-    document.querySelectorAll(".tasks").forEach((column) => {
-      column.innerHTML = "";
-    });
+  const state = JSON.parse(savedState);
 
-    // re-build tasks
-    Object.keys(state).forEach((columnId) => {
-      const column = document.getElementById(columnId);
-      if (column) {
-        state[columnId].forEach((taskText) => {
-          const task = document.createElement("li");
-          task.className = "task";
-          task.draggable = true;
-          task.textContent = taskText;
-          column.appendChild(task);
-        });
-      }
-    });
-  }
+  // clean all columns
+  document.querySelectorAll(".tasks").forEach((column) => {
+    column.innerHTML = "";
+  });
+
+  // re-build tasks
+  Object.keys(state).forEach((columnId) => {
+    const column = document.getElementById(columnId);
+    if (column) {
+      state[columnId].forEach((taskHTML) => {
+        column.insertAdjacentHTML("beforeend", taskHTML);
+      });
+    }
+  });
+
+  // re-enable drag
+  document.querySelectorAll(".task").forEach((task) => {
+    task.setAttribute("draggable", "true");
+  });
 }
 
-// Dragula effects
+// Dragula events
 
 // animation effects
 drake.on("drag", function (el, source) {
-
   // add column effect animate
   document.querySelectorAll(".task-column").forEach((column) => {
     column.classList.add("drop-ready");

@@ -21,6 +21,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-items: flex-start;
+  align-self: stretch;
   flex: 1;
   gap: 1rem;
   padding: 1.5rem 1rem;
@@ -37,7 +38,10 @@ p {
 .tasks {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  align-self: stretch;
   gap: 0.5rem;
+  min-height: auto;
   list-style: none;
   padding: 0;
   min-width: 20rem;
@@ -148,7 +152,7 @@ p {
 }
 
 .time-task:last-child {
-  background-color: rgba(222,247,236);
+  background-color: rgba(222, 247, 236);
 }
 
 .create-card {
@@ -164,11 +168,30 @@ p {
   background-color: #e3e3e3;
   color: #a3a3a3;
   font-weight: 600;
+  font-size: 1rem;
+  line-height: 24px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: background-color 0.4s linear, color 0.4s linear, stroke 0.4s linear, border 0.4s linear;
+}
+
+.create-card span {
+  padding-top: 2px;
+}
+
+.create-card path {
+  width: 24px;
+  height: 24px;
 }
 
 .create-card:hover {
+  border: 1px solid #747474;
   background-color: #b9b9b9;
   color: #4d4d4d;
+}
+
+.create-card:hover path {
+  stroke: #4d4d4d;
 }
 
 .gu-mirror {
